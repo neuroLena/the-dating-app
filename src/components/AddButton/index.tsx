@@ -1,8 +1,16 @@
 import React from "react";
-import { Container, ButtonText, ContainerProps } from "./styles";
+// import { Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';  // You may need to install it if you haven't already done so
+import { 
+  Container, 
+  ContainerProps,
+  ButtonText 
+} from "./styles";
 import Loading from "~components/Loading";
 
-const Button: React.FC<ContainerProps> = (props) => {
+
+
+const AddButton: React.FC<ContainerProps> = (props) => {
   const enabled = !props.loading && !props.disabled;
 
   return (
@@ -12,13 +20,14 @@ const Button: React.FC<ContainerProps> = (props) => {
       onPress={enabled ? props.onPress : null}
       {...props}
     >
+      {/* <ButtonText>Text</ButtonText> */}
       {props.loading && <Loading />}
       {!props.loading && (
-        <ButtonText fontWeight="bold" fontSize="large" variant={props.variant}>
-          {props.children}
-        </ButtonText>
+        
+        <Icon name="add" size={24} color="white" />
       )}
     </Container>
   );
 };
-export default Button;
+
+export default AddButton;

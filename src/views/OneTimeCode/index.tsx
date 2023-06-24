@@ -20,10 +20,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SceneName } from "~src/@types/SceneName";
 import moment from "moment";
 import { ThemeContext } from "styled-components";
+import { AuthContext } from '../../AuthContext'; // adjust path as needed
 
 const CODE_LENGTH = 4;
 const INITIAL_TIMEOUT_IN_SECONDS = 50;
 const RESEND_TIMEOUT_IN_SECONDS = 50;
+
+
 
 const Authentication = () => {
   const [timer, setTimer] = useTimer(INITIAL_TIMEOUT_IN_SECONDS);
@@ -37,12 +40,10 @@ const Authentication = () => {
 
   const insetTop = Math.max(15 + insets.top, 50);
 
+  const { setIsAuthenticated } = useContext(AuthContext);
   useDidMountEffect(() => {
     if (keyboardInput.length === CODE_LENGTH) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: SceneName.EditProfile }],
-      });
+      setIsAuthenticated(true);
     }
   }, [keyboardInput]);
 

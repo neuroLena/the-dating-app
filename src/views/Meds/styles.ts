@@ -11,3 +11,28 @@ export const Container = styled(SafeAreaView).attrs({
   padding-bottom: 50px;
   background-color: ${(props) => props.theme.colors.background};
 `;
+
+
+
+export const MedicationItem = styled.TouchableOpacity`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+`;
+
+export const MedicationIcon = styled.View`
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: ${(props) => props.theme.colors.primary};
+  align-items: center;
+  justify-content: center;
+`;
+
+export const MedicationLabel = styled.Text`
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.text};
+`;

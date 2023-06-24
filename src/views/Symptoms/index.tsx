@@ -1,8 +1,10 @@
 import React from "react";
-import { Text, Button } from "react-native";
+import { Text, Button, View } from "react-native";
 import { Container } from "./styles";
 import MySymptomsList from "./components/MySymptomsList";
 
+
+import AddButton from "../../components/AddButton/index"
 
 const Symptoms = () => {
   // const handleAddSymptom = () => {
@@ -11,10 +13,16 @@ const Symptoms = () => {
       // onPress={handleAddSymptom}
 
   return (
-    <Container>
-
-      <Button title="+ Add Symptom" onPress={() => console.log("Add New Symptom")} />
-      <MySymptomsList/>
+    <Container >
+       <View style={{ flex: 9 }}>
+       <MySymptomsList/>
+       </View>
+      
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <AddButton>+ Add Symptom</AddButton>
+      {/* <Button title="+ Add Symptom" color="#EE61A1" onPress={() => console.log("Add New Symptom")} /> */}
+      </View>
+     
 
     </Container>
   );

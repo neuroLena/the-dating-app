@@ -16,7 +16,7 @@ import { useColorScheme } from "react-native";
 import { useDidMountEffect } from "~services/utils";
 import * as SplashScreen from "expo-splash-screen";
 
-
+import { AuthContext } from './AuthContext'; // adjust path as needed
 
 LogBox.ignoreLogs([
   "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
@@ -25,6 +25,8 @@ LogBox.ignoreLogs([
 enableScreens();
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
   let [fontsLoaded] = useFonts({
     [Font.GilroyBold]: require("~assets/fonts/Gilroy-Bold.ttf"),
     [Font.GilroyExtraBold]: require("~assets/fonts/Gilroy-ExtraBold.ttf"),
@@ -45,6 +47,8 @@ export default function App() {
     SplashScreen.preventAutoHideAsync();
   }, []);
 
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   useDidMountEffect(() => {
     if (fontsLoaded) setTimeout(SplashScreen.hideAsync, 100);
   }, [fontsLoaded]);
@@ -55,9 +59,12 @@ export default function App() {
         <SafeComponent request={{ loading: !fontsLoaded, data: true }}>
           <Provider store={store}>
             <StatusBar style="dark" />
+            <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+   
             <NavigationContainer theme={theme as any}>
               <Router />
             </NavigationContainer>
+            </AuthContext.Provider>
           </Provider>
         </SafeComponent>
       </ThemeProvider>

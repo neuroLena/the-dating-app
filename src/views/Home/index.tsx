@@ -1,13 +1,25 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
-import { Container } from "./styles";
+import { View, Text, Button, Image } from "react-native";
+import { Container, Title } from "./styles";
+import Logo from "../../assets/images/Logo.svg"
+// import AddButton from "../../components/AddButton/index"
+import MyButton from "../../components/Button/index"
 
 const Home = () => {
   return (
-    <Container >
-     
-      <Text>Welcome!</Text>
+    <Container style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Logo width={100} height={100} />
+      
+      <Title style={{ color: "white" }}> Welcome! </Title>
 
+
+      <View style={{ height: 50 }} />
+      {/* <AddButton/> */}
+      {/* <Text style={{fontSize: 20, color: '#EE61A1'}}>Add Record</Text> */}
+      <MyButton>
+        + Add Record
+      </MyButton>
+      <View style={{ height: 20 }} /> 
       <Button title="My Symptoms" onPress={() => console.log("Navigate to My Symptoms")} />
       <Button title="My Meds" onPress={() => console.log("Navigate to My Meds")} />
       <Button title="My Reports" onPress={() => console.log("Navigate to My Reports")} />

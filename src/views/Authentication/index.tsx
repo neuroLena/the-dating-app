@@ -17,6 +17,11 @@ export const useCustomBottomInset = () => {
   return Math.max(20, insets.bottom + 5);
 };
 
+// export const AuthContext = React.createContext({
+//   isAuthenticated: false,
+//   setIsAuthenticated: () => {},
+// });
+
 const Authentication = () => {
   const insets = useSafeAreaInsets();
   const bottomInset = useCustomBottomInset();
@@ -60,7 +65,7 @@ const Authentication = () => {
         </TopCard>
         <BottomCard style={{ paddingBottom: bottomInset }}>
           <Title>
-          Insert your<Highlight>phone number</Highlight>
+          Insert your <Highlight>phone number</Highlight>
           </Title>
           <Description>
           We will send you a 4-digit code to authorize your account. 
@@ -71,7 +76,7 @@ const Authentication = () => {
             returnKeyType="send"
             onSubmitEditing={handleLogin}
             blurOnSubmit={false}
-            placeholder="(99) 99999-9999"
+            placeholder="99999-9999"
           />
           <Button loading={loading} onPress={handleLogin}>
             Continue

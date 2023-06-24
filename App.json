@@ -1,11 +1,11 @@
 {
-  "displayName": "Pegava",
+  "displayName": "Mental Friend",
   "expo": {
-    "name": "Pegava",
-    "description": "Aplicativo de relacionamento",
+    "name": "Mental Friend",
+    "description": "Mental health tracking application",
     "scheme": "pegava",
-    "slug": "pegava",
-    "icon": "./src/assets/images/icon.png",
+    "slug": "mentalfriend",
+    "icon": "./src/assets/images/Logo.png",
     "orientation": "portrait",
     "platforms": ["ios", "android"],
     "androidStatusBar": {
