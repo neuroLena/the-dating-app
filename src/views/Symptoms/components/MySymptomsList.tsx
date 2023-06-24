@@ -14,7 +14,7 @@ const MySymptomsList = () => {
         { id: 8, name: "Anger" },
         { id: 9, name: "Irritability" },
         { id: 10, name: "Brain Fog" },
-        { id: 11, name: "Concentration" },
+        { id: 11, name: "Productivity" },
       // Add more symptom objects as needed
     ];
   

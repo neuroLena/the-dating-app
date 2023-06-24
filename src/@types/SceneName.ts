@@ -1,5 +1,6 @@
 export enum SceneName {
   Authentication = "Authentication",
+  AddRecord="AddRecord",
   OneTimeCode = "OneTimeCode",
   UserProfile = "UserProfile",
   EditProfile = "EditProfile",

@@ -22,9 +22,9 @@ export const MedicationItem = styled.TouchableOpacity`
 `;
 
 export const MedicationIcon = styled.View`
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.colors.primary};
   align-items: center;
   justify-content: center;

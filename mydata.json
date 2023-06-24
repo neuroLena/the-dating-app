@@ -1,0 +1,35 @@
+{
+
+"MyCredentials":[
+    {
+        "UserName" : "User",
+        "Email" : "user@gmail.com",
+        "Password" : "password"
+    }
+],
+
+"MyMedicationsList":[
+    { "id": 1, "name": "Pentalgin"},
+    { "id": 2, "name": "Venlaphaxine"},
+    { "id": 3, "name": "Mirtazapin" },
+    { "id": 5, "name": "Strattera" },
+    { "id": 6, "name": "Suprastin" }
+],
+
+"MySymptomsList":[
+    { "id": 1, "name": "Mood"},
+    { "id": 2, "name": "Fatigue"},
+    { "id": 3, "name": "Head Ache" },
+    { "id": 5, "name": "Appetite" },
+    { "id": 6, "name": "Anxiety" },
+    { "id": 7, "name": "Ruminations" },
+    { "id": 8, "name": "Anger" },
+    { "id": 9, "name": "Irritability" },
+    { "id": 10, "name": "Brain Fog" },
+    { "id": 11, "name": "Productivity" }
+]
+
+
+
+
+}

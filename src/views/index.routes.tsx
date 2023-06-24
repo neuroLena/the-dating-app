@@ -14,16 +14,19 @@ import Navbar from "../components/Navbar";
 import Home from "~views/Home";
 import Meds from "~views/Meds";
 
+import AddRecord from './AddRecord';
+import AddRecordView from '~views/AddRecord';
+import Authentication from "./Authentication";
+import EditProfileView from "~views/EditProfile";
+import EditProfile from "./EditProfile";
+import MessagesView from "~views/Messages";
+import OneTimeCode from "./OneTimeCode";
 import Symptoms from "~views/Symptoms";
 import Settings from "~views/Settings";
 import SwipeView from "~views/Swipe";
-import EditProfileView from "~views/EditProfile";
-import MessagesView from "~views/Messages";
-import Authentication from "./Authentication";
-import OneTimeCode from "./OneTimeCode";
 import UserProfile from "./UserProfile";
-import EditProfile from "./EditProfile";
-import Chat from "./Chat";
+// import Chat from "./Chat";
+
 import { AuthContext } from '../AuthContext'; // adjust path as needed
 
 
@@ -43,6 +46,7 @@ const AppStackNavigator = () => {
   return (
     <AppStack.Navigator initialRouteName={SceneName.Main} screenOptions={{ headerShown: false }}>
       <AppStack.Screen name={SceneName.Main} component={DrawerNavigator} />
+      <AppStack.Screen name={SceneName.AddRecord} component={AddRecordView} /> 
     </AppStack.Navigator>
   );
 };
