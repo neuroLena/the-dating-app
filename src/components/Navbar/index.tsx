@@ -1,12 +1,21 @@
 import React, { useContext } from "react";
-import { Container, Tabs, Tab, Indicator } from "./styles";
+import { Container, 
+  Tabs, 
+  Tab, 
+  Indicator} from "./styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Dimensions } from "react-native";
 import { ThemeContext } from "styled-components";
 import { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
+
+import { Dimensions, Text } from "react-native";
+import { DrawerActions } from "@react-navigation/native";
+
+
+
 const NAVBAR_HEIGHT = 68;
 const screenWidth = Dimensions.get("window").width;
+
 
 export const useNavbarStyle = () => {
   const { top } = useSafeAreaInsets();
@@ -19,16 +28,13 @@ export const useNavbarStyle = () => {
 
 const INDICATOR_WIDTH = 15;
 
-function Navbar({
-  state,
-  descriptors,
-  navigation,
-  position,
-}: MaterialTopTabBarProps) {
+function Navbar({ state, descriptors,navigation, position }: MaterialTopTabBarProps) {
   const style = useNavbarStyle();
   const themeContext = useContext(ThemeContext);
+  const openDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  };
 
-  // Translate the indicator to the middle of the tab
   const tabWidth = screenWidth / state.routes.length;
   const initialPosition = tabWidth / 2 - INDICATOR_WIDTH / 2;
   const translate = position.interpolate({
@@ -39,8 +45,11 @@ function Navbar({
     ],
   });
 
+
+
   return (
     <Container style={[style]}>
+
       <Tabs>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
@@ -58,9 +67,18 @@ function Navbar({
             }
           };
 
-          const TabIcon = options.tabBarIcon as unknown as React.FC<
-            Parameters<typeof options.tabBarIcon>[0]
-          >;
+          // const TabIcon = options.tabBarIcon as unknown as React.FC<
+          //   Parameters<typeof options.tabBarIcon>[0]
+          // >;
+
+          // if (TabIcon) {
+          //   IconComponent = typeof TabIcon === 'function'
+          //     ? TabIcon({
+          //         focused: isFocused,
+          //         color: isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor
+          //       })
+          //     : TabIcon;
+          // }
 
           return (
             <Tab
@@ -68,10 +86,16 @@ function Navbar({
               accessibilityState={{ selected: isFocused }}
               onPress={onPress}
             >
-              <TabIcon
+              
+              {/* {getIcon(route.name)} */}
+              {/* <TabIcon
                 focused={isFocused}
                 color={options.tabBarInactiveTintColor}
-              />
+              /> */}
+              <Text style={{ color: isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor }}>
+                {route.name}
+              </Text>
+
             </Tab>
           );
         })}
@@ -85,5 +109,6 @@ function Navbar({
     </Container>
   );
 }
+
 
 export default Navbar;

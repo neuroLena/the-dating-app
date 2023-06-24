@@ -11,4 +11,5 @@ export enum SceneName {
   Meds = "Meds",
   Symptoms = "Symptoms",
   Home = "Home",
+  Settings = "Settings"
 }
