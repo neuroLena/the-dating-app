@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <Container>
       <Title>
-        <Text fontWeight="bold">Pegáveis</Text>
+        <Text fontWeight="bold">Catch</Text>
       </Title>
       <FlatList
         data={mockRequest.data}
@@ -19,7 +19,7 @@ export const Header = () => {
         contentContainerStyle={{ paddingHorizontal: 10 }}
       />
       <Title>
-        <Text fontWeight="bold">Mensagens</Text>
+        <Text fontWeight="bold">Messages</Text>
       </Title>
     </Container>
   );

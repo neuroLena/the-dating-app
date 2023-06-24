@@ -16,6 +16,12 @@ import { SceneName } from "~src/@types/SceneName";
 import SwipeView from "~views/Swipe";
 import EditProfileView from "~views/EditProfile";
 import MessagesView from "~views/Messages";
+
+
+import Home from "~views/Home";
+import Meds from "~views/Meds";
+import Symptoms from "~views/Symptoms";
+
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import Logo from "~images/Logo.svg";
@@ -68,6 +74,36 @@ const Tabs = () => {
         }}
         component={EditProfileView}
       />
+
+
+<Tab.Screen
+        name={SceneName.Home}
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused, color }) =>
+            focused ? <Profile fill={color} /> : <Profile fill={color} />,
+        }}
+      />
+      <Tab.Screen
+        name={SceneName.Symptoms}
+        component={Symptoms}
+        options={{
+          tabBarIcon: ({ focused, color }) =>
+            focused ? <Profile fill={color} /> : <Profile fill={color} />,
+        }}
+      />
+      <Tab.Screen
+        name={SceneName.Meds}
+        component={Meds}
+        options={{
+          tabBarIcon: ({ focused, color }) =>
+            focused ? <Profile fill={color} /> : <Profile fill={color} />,
+        }}
+      />
+
+
+
+
     </Tab.Navigator>
   );
 };

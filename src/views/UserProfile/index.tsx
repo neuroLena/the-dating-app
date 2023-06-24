@@ -41,6 +41,8 @@ const Icons = {
   [TeaserTypes.Job]: JobIcon,
 };
 
+// This hook handles swipe gestures and navigation actions.
+// It uses various hooks and Redux to manage the swipe actions and dispatch relevant actions.
 const useSwipeHandler = (user: any) => {
   const currentCardId = useSelector(getCurrentCardId);
   const dispatch = useDispatch();
@@ -57,6 +59,8 @@ const useSwipeHandler = (user: any) => {
   };
 };
 
+// This component displays teaser information based on the provided teasers prop.
+// It renders a list of teaser items, each containing an icon and text.
 const Teasers = ({ teasers }) => {
   const themeContext = useContext(ThemeContext);
 
@@ -85,11 +89,15 @@ const Teasers = ({ teasers }) => {
   );
 };
 
+
+// This is the main screen component for a swipe profile
 const UserProfile = ({ route }) => {
+  // receive the user data through the route.params prop
   const { user } = route.params;
 
+  // useSwipeHandler hook to handle swipe gestures
   const swipeHandler = useSwipeHandler(user);
-
+  // hooks to manage insets, navigation, and theme context.
   const insets = useSafeAreaInsets();
   const bottomInset = useCustomBottomInset();
   const navigation = useNavigation();
@@ -111,6 +119,7 @@ const UserProfile = ({ route }) => {
             backgroundColor={themeContext.colors.background}
           />
         )}
+
         <MainCard
           shouldShowPersonalInfo={false}
           style={{
@@ -139,7 +148,7 @@ const UserProfile = ({ route }) => {
                   textAlign: "center",
                 }}
               >
-                Compartilhar perfil de {firstName}
+                Share profile of {firstName}
               </Description>
             </ShareButton>
             <ReportButton>
@@ -150,7 +159,7 @@ const UserProfile = ({ route }) => {
                   textAlign: "center",
                 }}
               >
-                Denunciar {firstName}
+                Report {firstName}
               </Description>
             </ReportButton>
           </Content>

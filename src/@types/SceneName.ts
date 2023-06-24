@@ -8,4 +8,7 @@ export enum SceneName {
   Messages = "Messages",
   Profile = "Profile",
   Main = "Main",
+  Meds = "Meds",
+  Symptoms = "Symptoms",
+  Home = "Home",
 }

@@ -82,6 +82,9 @@ const EditProfile = ({ route }) => {
   const headerHeight = useHeaderHeight();
   const navbarHeight = useNavbarStyle().height;
 
+
+  // custom hook is used to execute a function only after the component 
+  // has mounted and not during the initial render
   useDidMountEffect(() => {
     navigation.setOptions({ swipeEnabled: gesturesEnabled });
   }, [gesturesEnabled]);
@@ -134,29 +137,29 @@ const EditProfile = ({ route }) => {
             }}
           />
           <Input
-            title="Meu nome"
-            placeholder="Como gostaria que te apresentássemos?"
+            title="My nome"
+            placeholder="How would you like us to introduce you?"
             value={name}
             onChangeText={setName}
             maxLength={50}
           />
           <Input
-            title="Sobre mim"
-            placeholder="Conte alguma coisa legal sobre você"
+            title="About me"
+            placeholder="Tell me something nice about yourself"
             value={bio}
             onChangeText={setBio}
             maxLength={500}
             multiline
           />
           <RadioButtons
-            title="Sexo"
-            data={["Homem", "Mulher", "Outro"]}
+            title="Gender"
+            data={["Male", "Female", "Other"]}
             value={gender}
             onChange={setGender}
           />
           <RadioButtons
             title="Mostrar-me"
-            data={["Homem", "Mulher", "Todos"]}
+            data={["Male", "Female", "All"]}
             value={genderOfInterest}
             onChange={setGenderOfInterest}
           />
@@ -164,10 +167,11 @@ const EditProfile = ({ route }) => {
         <ContinueButton
           disabled={continueButtonDisabled}
           onPress={() =>
-            navigation.navigate(SceneName.Main, { screen: SceneName.Swipe })
+            // navigation.navigate(SceneName.Main, { screen: SceneName.Swipe })
+            navigation.navigate(SceneName.Main, { screen: SceneName.Home })
           }
         >
-          Salvar perfil
+         Save Profile
         </ContinueButton>
       </KeyboardAvoidingView>
       <BottomPadding
