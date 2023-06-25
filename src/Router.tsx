@@ -1,15 +1,15 @@
 // Router.tsx
 
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components/native';
+import React, { useContext, useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from '../AuthContext'; // adjust path as needed
-import AppStackNavigator from './navigation/AppStackNavigator';
+import { ThemeContext } from "styled-components/native";
 import AuthStackNavigator from './navigation/AuthStackNavigator';
+import AppStackNavigator from './navigation/AppStackNavigator';
+import { AuthContext } from './AuthContext';
 
 export default function Router() {
   const theme = useContext(ThemeContext);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>

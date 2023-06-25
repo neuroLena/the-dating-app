@@ -3,7 +3,7 @@ import { Header, BackTouchArea, Picture } from "./styles";
 import Text from "~components/Text";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ThemeContext } from "styled-components/native";
-import { IChat } from "~views/Chat";
+import { IChat } from "~views/Tabs/Social/Chat";
 import BackArrow from "~images/BackArrow.svg";
 
 export default function Component() {

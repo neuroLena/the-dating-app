@@ -118,13 +118,23 @@ src
 │
 ├── views
 │   ├── Home
-│   ├── Meds
-│   ├── AddRecord
-│   ├── EditProfile
-│   ├── Messages
-│   ├── Symptoms
-│   ├── Settings
-│   ├── Swipe
+│   ├── Authentification
+│      ├── Authentification
+│      ├── OneTimeCode
+│   ├── Drawer
+│     ├── EditProfile
+│     ├── Settings
+│   ├── Tabs
+│     ├── MyRecords
+│        ├── AddRecord
+│        ├── Symptoms
+│        ├── Meds
+│        ├── Reports
+│     ├── MyTodoList
+│     ├── Treatment
+│     ├── Social
+│        ├── Messages
+│        ├── Chat
 │
 ├── components
 │   ├── AddButton
@@ -146,7 +156,10 @@ src
 │
 ├── AuthContext.tsx
 │
-└── Router.tsx
+|-- Router.tsx
+|
+|-- mydata.json
 |
 └── App.tsx
+
 

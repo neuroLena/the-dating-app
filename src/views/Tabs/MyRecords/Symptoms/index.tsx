@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import MySymptomsList from "./components/MySymptomsList";
 
 
-import AddButton from "../../components/AddButton/index"
+import AddButton from "../../../../components/AddButton/index"
 
 const Symptoms = () => {
   // const handleAddSymptom = () => {

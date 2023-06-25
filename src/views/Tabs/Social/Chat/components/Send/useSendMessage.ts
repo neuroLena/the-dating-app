@@ -1,6 +1,6 @@
 import moment from "moment";
 import uuid from "react-native-uuid";
-import { Creators, useContext } from "~views/Chat/store";
+import { Creators, useContext } from "~views/Tabs/Social/Chat/store";
 import { FeedbackStatus } from "../Feedback";
 
 // Should be a saga or something

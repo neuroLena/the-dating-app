@@ -26,11 +26,7 @@ const Home = () => {
       <MyButton onPress={handleAddRecord}>
         + Add Record
       </MyButton>
-      <View style={{ height: 20 }} /> 
-      <Button title="My Symptoms" onPress={() => console.log("Navigate to My Symptoms")} />
-      <Button title="My Meds" onPress={() => console.log("Navigate to My Meds")} />
-      <Button title="My Reports" onPress={() => console.log("Navigate to My Reports")} />
-      </Container>
+       </Container>
   );
 };
 

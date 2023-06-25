@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import { StatusBar } from "expo-status-bar";
 import Text from "~components/Text";
-import { Underline } from "./../Authentication/components/HeroText";
+import { Underline } from "../Authentication/components/HeroText";
 import { useNavigation } from "@react-navigation/native";
 import { useDidMountEffect } from "~services/utils";
 import CustomKeyboard from "./components/CustomKeyboard";
@@ -20,7 +20,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SceneName } from "~src/@types/SceneName";
 import moment from "moment";
 import { ThemeContext } from "styled-components";
-import { AuthContext } from '../../AuthContext'; // adjust path as needed
+import { AuthContext } from '../../../AuthContext'; // adjust path as needed
 
 const CODE_LENGTH = 4;
 const INITIAL_TIMEOUT_IN_SECONDS = 50;

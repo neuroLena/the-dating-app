@@ -1,19 +1,19 @@
-// SettingsNavigator.js
+// navigation/SettingsNavigator.tsx
 
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SettingsView1 } from "~views/SettingsView1"; // Replace with actual view
-import { SettingsView2 } from "~views/SettingsView2"; // Replace with actual view
+import { RootStackParamList } from "~src/@types/react-navigation.d";
+// import EditProfile from '~views/Drawer/EditProfile';
+import Settings from '~views/Drawer/Settings';
 
-const Tab = createBottomTabNavigator();
+const SettingsTab = createBottomTabNavigator<RootStackParamList>();
 
 function SettingsNavigator() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="SettingsView1" component={SettingsView1} />
-      <Tab.Screen name="SettingsView2" component={SettingsView2} />
-      {/* Add other screens as necessary */}
-    </Tab.Navigator>
+    <SettingsTab.Navigator>
+      {/* <SettingsTab.Screen name="EditProfile" component={EditProfile} /> */}
+      <SettingsTab.Screen name="Settings" component={Settings} />
+    </SettingsTab.Navigator>
   );
 }
 

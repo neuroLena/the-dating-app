@@ -3,7 +3,7 @@ import { Title, Container } from "./styles";
 import { Text } from "~components";
 import { FlatList } from "react-native";
 import { Preview } from "../Preview";
-import { mockRequest } from "~views/Messages/__mocks__";
+import { mockRequest } from "~views/Tabs/Social/Messages/__mocks__";
 
 export const Header = () => {
   return (

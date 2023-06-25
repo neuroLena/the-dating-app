@@ -12,6 +12,11 @@ export type RootStackParamList = {
   [SceneName.Main]: NavigatorScreenParams<undefined>;
   [SceneName.EditProfile]: undefined;
   [SceneName.Home]: { user: User };
+  MainDrawer: undefined;
+  TopTabsNavigator: undefined;
+  MainDrawer: undefined;
+  AppStackNavigator: undefined;
+  AuthkNavigator: undefined;
 
 };
 

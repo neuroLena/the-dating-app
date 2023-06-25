@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import * as data from '../../../mydata.json';
+import * as data from '../../../../../mydata.json';
 import Collapsible from 'react-native-collapsible';
 import { SceneName } from '~src/@types/SceneName';
 

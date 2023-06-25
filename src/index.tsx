@@ -1,10 +1,12 @@
+// App.tsx
+
 import React, { useEffect, useMemo } from "react";
 import { registerRootComponent } from "expo";
 import { useFonts } from "@use-expo/font";
 import { DefaultTheme, Font, LightTheme, DarkTheme } from "./themes";
 import { ThemeProvider } from "styled-components/native";
 import { NavigationContainer } from "@react-navigation/native";
-import Router from "./views/index.routes";
+import Router from "./Router"; 
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { Loading, SafeComponent } from "~components";
@@ -16,7 +18,7 @@ import { useColorScheme } from "react-native";
 import { useDidMountEffect } from "~services/utils";
 import * as SplashScreen from "expo-splash-screen";
 
-import { AuthContext } from './AuthContext'; // adjust path as needed
+import { AuthContext } from './AuthContext';
 
 LogBox.ignoreLogs([
   "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
@@ -47,8 +49,6 @@ export default function App() {
     SplashScreen.preventAutoHideAsync();
   }, []);
 
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   useDidMountEffect(() => {
     if (fontsLoaded) setTimeout(SplashScreen.hideAsync, 100);
   }, [fontsLoaded]);
@@ -60,10 +60,9 @@ export default function App() {
           <Provider store={store}>
             <StatusBar style="dark" />
             <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-   
-            <NavigationContainer theme={theme as any}>
-              <Router />
-            </NavigationContainer>
+              {/* <NavigationContainer theme={theme as any}> */}
+                <Router />
+              {/* </NavigationContainer> */}
             </AuthContext.Provider>
           </Provider>
         </SafeComponent>

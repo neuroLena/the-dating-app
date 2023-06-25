@@ -12,17 +12,17 @@ import { SceneName } from "~src/@types/SceneName";
 
 import Navbar from "../components/Navbar";
 import Home from "~views/Home";
-import Meds from "~views/Meds";
+import Meds from "~views/Tabs/MyRecords/Meds";
 
-import AddRecord from './AddRecord';
-import AddRecordView from '~views/AddRecord';
-import Authentication from "./Authentication";
-import EditProfileView from "~views/EditProfile";
-import EditProfile from "./EditProfile";
-import MessagesView from "~views/Messages";
-import OneTimeCode from "./OneTimeCode";
-import Symptoms from "~views/Symptoms";
-import Settings from "~views/Settings";
+import AddRecord from './Tabs/MyRecords/AddRecord';
+import AddRecordView from '~views/Tabs/MyRecords/AddRecord';
+import Authentication from "./Authentification/Authentication";
+import EditProfileView from "~views/Drawer/EditProfile";
+import EditProfile from "./Drawer/EditProfile";
+import MessagesView from "~views/Tabs/Social/Messages";
+import OneTimeCode from "./Authentification/OneTimeCode";
+import Symptoms from "~views/Tabs/MyRecords/Symptoms";
+import Settings from "~views/Drawer/Settings";
 import SwipeView from "~views/Swipe";
 import UserProfile from "./UserProfile";
 // import Chat from "./Chat";
