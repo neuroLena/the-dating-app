@@ -105,3 +105,48 @@ This project was made in 2020, released publicly in 2022.
 The project is under the [The Creative Commons CC0 license](https://github.com/GSTJ/PegavaDatingApp/master/LICENSE).
 
 Made with 💖 by [**Gabriel Taveira**](https://github.com/GSTJ) 🚀
+
+
+
+# Structure
+
+src
+│
+├── @types
+│   ├── react-navigation.d.ts
+│   ├── SceneName.d.ts
+│
+├── views
+│   ├── Home
+│   ├── Meds
+│   ├── AddRecord
+│   ├── EditProfile
+│   ├── Messages
+│   ├── Symptoms
+│   ├── Settings
+│   ├── Swipe
+│
+├── components
+│   ├── AddButton
+│   ├── Button
+│   ├── Input
+
+│
+├── navigation
+│   ├── AuthStackNavigator.tsx
+│   ├── AppStackNavigator.tsx
+│   ├── ProfileNavigator.tsx
+│   ├── SettingsNavigator.tsx
+│   ├── MainDrawer.tsx
+|   |-- BottomTabs
+|   |   |-- MyRecordsTabNavigator.tsx
+|   |   |-- MyTodoListTabNavigator.tsx
+|   |   |-- TreatmentTabNavigator.tsx
+|   |   |-- SocialTabNavigator.tsx
+│
+├── AuthContext.tsx
+│
+└── Router.tsx
+|
+└── App.tsx
+
