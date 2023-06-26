@@ -1,3 +1,5 @@
+//store/selectors.ts
+
 import { createSelector } from "reselect";
 import { RootReducer } from "~reducers/index";
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
+  // ScrollView,
   StyleSheet,
   Text,
   View,
   FlatList,
-  Pressable,
+  // Pressable,
   Button,
   Modal,
   TouchableOpacity,
@@ -15,14 +15,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Accordion from 'react-native-collapsible/Accordion';
-import SubmitButton from "../../../../components/AddButton/index"
+import SubmitButton from "../../../../components/Button/index"
 import Slider from '@react-native-community/slider';
 import { throttle } from 'lodash';
-
-// import mydata from './mydata.json'; // import your json data
-
 import mydata from '../../../../../mydata.json';
-// import Collapsible from 'react-native-collapsible';
 import { SceneName } from '~src/@types/SceneName';
 import type { PropsWithChildren } from 'react';
 
@@ -32,13 +28,26 @@ import { useState } from 'react';
 // The data should be an array, please ensure it is correctly formatted
 
   
+interface SelectedSymptom {
+  label: string;
+  value: number;
+}
+
 function AddRecordView(): JSX.Element {
-    const [ activeSections, setActiveSections ] = useState([]); 
+    const [activeSections, setActiveSections] = useState([]); 
     const [modalVisible, setModalVisible] = useState(false);
     const [sliderValue, setSliderValue] = useState(0);
     const [label, setLabel] = useState('');
+    const [selectedSymptoms, setSelectedSymptoms] = useState<SelectedSymptom[]>([]);
+    const [currentSymptom, setCurrentSymptom] = useState<SelectedSymptom>({ label: '', value: 0 });
 
-    const handleLabelPress = (label) => {
+    
+
+    const handleLabelPress = (label: string) => {
+      const existingSymptom = selectedSymptoms.find(symptom => symptom.label === label);
+
+      setCurrentSymptom({ label, value: existingSymptom ? existingSymptom.value : 0 });
+     
       setModalVisible(true);
       setLabel(label);
     };
@@ -76,43 +85,61 @@ function AddRecordView(): JSX.Element {
 
     ];
   
-  
+    // const handleSave = () => {
+    //   const newSymptom: SelectedSymptom = { label, value: sliderValue };
+    //   setSelectedSymptoms([...selectedSymptoms, newSymptom]);
+    //   setModalVisible(false);
+    //   setLabel('');
+    //   setSliderValue(0);
+    // };
+    const handleSave = () => {
+      setSelectedSymptoms(prevSymptoms => {
+        const existingIndex = prevSymptoms.findIndex(symptom => symptom.label === currentSymptom.label);
+        if (existingIndex >= 0) {
+          const newSymptoms = [...prevSymptoms];
+          newSymptoms[existingIndex] = currentSymptom;
+          return newSymptoms;
+        }
+        return [...prevSymptoms, currentSymptom];
+      });
+      setCurrentSymptom({ label: '', value: 0 });
+      setModalVisible(false);
+    };
 
-  const _renderHeader = section => {
-    return (
-      <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray', padding: 10 }}>
-    
-        <Text>{section.title}</Text>
-      </View>
-    );
-  };
-
-  const _renderContent = section => {
-    return (
-
-      <FlatList
-      data={section.content}
-      renderItem={({ item: label, index }) => (
-        // <Pressable style={styles.item} onPress={() => console.log(label)}>
-        //   <Text>{label}</Text>
-        // </Pressable>
-        <TouchableOpacity key={index} style={styles.item} onPress={() => handleLabelPress(label)}>
-        <Text>{label}</Text>
-      </TouchableOpacity>
+    const _renderHeader = section => {
+      return (
+        <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray', padding: 10 }}>
       
-      )}
-      keyExtractor={item => item}
-      numColumns={3}
-    />
+          <Text>{section.title}</Text>
+        </View>
+      );
+    };
 
-    );
-  };
+    const _renderContent = section => {
+      return (
+
+        <FlatList
+        data={section.content}
+        renderItem={({ item: label, index }) => (
+          // <Pressable style={styles.item} onPress={() => console.log(label)}>
+          //   <Text>{label}</Text>
+          // </Pressable>
+          <TouchableOpacity key={index} style={styles.item} onPress={() => handleLabelPress(label)}>
+          <Text>{label}</Text>
+        </TouchableOpacity>
+        
+        )}
+        keyExtractor={item => item}
+        numColumns={3}
+      />
+
+      );
+    };
 
     return (
       <SafeAreaView style={styles.container}>
         <View
-          // contentInsetAdjustmentBehavior="automatic"
-          style={styles.container}>
+           style={styles.container}>
             <Accordion
               align="bottom"
               sections={sections}
@@ -124,18 +151,18 @@ function AddRecordView(): JSX.Element {
               sectionContainerStyle={styles.accordContainer}
             />
         </View>
-        <SubmitButton >
+        <SubmitButton onPress={handleSave}>
           Submit 
         </SubmitButton>
 
         <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
@@ -146,14 +173,17 @@ function AddRecordView(): JSX.Element {
               minimumValue={1}
               maximumValue={100}
               step={1}
-              onValueChange={throttle(value => setSliderValue(value), 200)}
-              value={sliderValue}
+              value={currentSymptom.value}
+                onSlidingComplete={(value) => {
+                  setCurrentSymptom({ ...currentSymptom, value });
+                }}
             />
 
             <Button
               onPress={() => {
+                handleSave();
                 setModalVisible(!modalVisible);
-                console.log(`Saved value: ${sliderValue}`);
+                console.log(`Saved symptom value: ${sliderValue}`);
               }}
               title="Save"
               color="#841584"
