@@ -104,6 +104,15 @@ function AddRecordView(): JSX.Element {
       });
       setCurrentSymptom({ label: '', value: 0 });
       setModalVisible(false);
+      console.log(selectedSymptoms);
+    };
+
+    const handleSubmit = () => {
+      // Do something with selectedSymptoms here
+      console.log(selectedSymptoms);
+
+      // Clear selectedSymptoms
+      setSelectedSymptoms([]);
     };
 
     const _renderHeader = section => {
@@ -151,7 +160,7 @@ function AddRecordView(): JSX.Element {
               sectionContainerStyle={styles.accordContainer}
             />
         </View>
-        <SubmitButton onPress={handleSave}>
+        <SubmitButton onPress={handleSubmit}>
           Submit 
         </SubmitButton>
 
