@@ -164,9 +164,15 @@ function AddRecordView(): JSX.Element {
             setModalVisible(!modalVisible);
           }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Set the value for {label}</Text>
+        {/* cover the entire screen and close the modal when touched */}
+         <View style={styles.centeredView} onStartShouldSetResponder={() => {
+            setModalVisible(false);
+            return true;
+          }}>
+          {/* stop propagation of touch events so the modal doesn't close when it or its children are touched */}
+          <View style={styles.modalView} onStartShouldSetResponder={() => true}>
+            
+            <Text style={styles.modalText}>Set the value for {currentSymptom.label}</Text>
 
             <Slider
               style={{width: 200, height: 40}}
