@@ -1,3 +1,5 @@
+import SuggestImprovementsNavigator from "~src/navigation/LeftDrawer/SuggestImprovement";
+
 export enum SceneName {
   Authentication = "Authentication",
   AddRecord="AddRecord",
@@ -19,6 +21,7 @@ export enum SceneName {
   SocialHome = "SocialHome",
   TreatmentHome = "TreatmentHome",
   UserProfile = "UserProfile",
-  GameHomeView="GameHomeView"
+  GameHomeView="GameHomeView",
+  SuggestImprovement = "SuggestImprovement"
   // TopTabHome = "TopTabHome",
 }
