@@ -10,6 +10,7 @@ import AboutAppNavigator from './LeftDrawer/AboutAppNavigator';
 import ExportDataavigator from './LeftDrawer/ExportDataNavigator';
 import ShareDataNavigator from './LeftDrawer/ShareDataNavigator';
 
+import GameNavigator from './LeftDrawer/GameNavigator';
 import TopTabsNavigator from './TopTabsNavigator';
 import Home from "../views/Home/index"
 import { RootStackParamList } from "~src/@types/react-navigation.d";
@@ -30,6 +31,7 @@ function MainDrawer() {
       <Drawer.Screen name="About App" component={AboutAppNavigator} />
       <Drawer.Screen name="Suggest Improvement" component={SuggestImprovementNavigator} />
       <Drawer.Screen name="Log Out" component={LogOutsNavigator} />
+      <Drawer.Screen name="Game" component={GameNavigator} />
       
     </Drawer.Navigator>
   );
