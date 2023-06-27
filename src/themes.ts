@@ -44,6 +44,10 @@ export const DefaultConfigs = {
         size: 14,
         lineHeight: 20,
       },
+      text10:{
+        size: 11,
+        lineHeight: 10,
+      }
     },
   },
 };

@@ -27,7 +27,22 @@
     { "id": 9, "name": "Irritability" },
     { "id": 10, "name": "Brain Fog" },
     { "id": 11, "name": "Productivity" }
+],
+
+"MyRecordsList":[
+    { "id": 1, "name": "Mood"},
+    { "id": 2, "name": "Fatigue"},
+    { "id": 3, "name": "Head Ache" },
+    { "id": 5, "name": "Appetite" },
+    { "id": 6, "name": "Anxiety" },
+    { "id": 7, "name": "Ruminations" },
+    { "id": 8, "name": "Anger" },
+    { "id": 9, "name": "Irritability" },
+    { "id": 10, "name": "Brain Fog" },
+    { "id": 11, "name": "Productivity" }
 ]
+
+
 
 
 

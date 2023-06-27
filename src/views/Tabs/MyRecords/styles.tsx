@@ -21,3 +21,17 @@ export const Title = styled(Text).attrs({
   margin-bottom: 5px;
   background-color: ${(props) => props.theme.colors.primary};
 `;
+
+export const TitleCyan = styled(Text).attrs({
+  fontSize: "h3",
+  fontWeight: "bold",
+})`
+  color: "cyan";
+  margin-bottom: 5px;
+  background-color: ${(props) => props.theme.colors.primary};
+`;
+
+export const Space = styled(Text).attrs({
+  height: 20, 
+})`
+  `;

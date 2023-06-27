@@ -24,13 +24,16 @@ import type { PropsWithChildren } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import RNFS from 'react-native-fs';import * as FileSystem from 'expo-file-system';
 
 // The data should be an array, please ensure it is correctly formatted
 
-  
+const datapath = `${FileSystem.documentDirectory}data/`;
+console.log(datapath);
 interface SelectedSymptom {
   label: string;
   value: number;
+  parent: string
 }
 
 function AddRecordView(): JSX.Element {
@@ -39,17 +42,20 @@ function AddRecordView(): JSX.Element {
     const [sliderValue, setSliderValue] = useState(0);
     const [label, setLabel] = useState('');
     const [selectedSymptoms, setSelectedSymptoms] = useState<SelectedSymptom[]>([]);
-    const [currentSymptom, setCurrentSymptom] = useState<SelectedSymptom>({ label: '', value: 0 });
+    const [currentSymptom, setCurrentSymptom] = useState<SelectedSymptom>({ label: '', value: 0, parent:'' });
 
     
 
-    const handleLabelPress = (label: string) => {
+    const handleLabelPress = (label: string,  parent: string) => {
       const existingSymptom = selectedSymptoms.find(symptom => symptom.label === label);
 
-      setCurrentSymptom({ label, value: existingSymptom ? existingSymptom.value : 0 });
+      setCurrentSymptom({ label, 
+                          value: existingSymptom ? existingSymptom.value : 0,
+                        parent });
      
       setModalVisible(true);
       setLabel(label);
+    
     };
 
     const symptomsList = mydata.MySymptomsList.map(item => item.name); // extract the names
@@ -85,13 +91,7 @@ function AddRecordView(): JSX.Element {
 
     ];
   
-    // const handleSave = () => {
-    //   const newSymptom: SelectedSymptom = { label, value: sliderValue };
-    //   setSelectedSymptoms([...selectedSymptoms, newSymptom]);
-    //   setModalVisible(false);
-    //   setLabel('');
-    //   setSliderValue(0);
-    // };
+
     const handleSave = () => {
       setSelectedSymptoms(prevSymptoms => {
         const existingIndex = prevSymptoms.findIndex(symptom => symptom.label === currentSymptom.label);
@@ -102,18 +102,56 @@ function AddRecordView(): JSX.Element {
         }
         return [...prevSymptoms, currentSymptom];
       });
-      setCurrentSymptom({ label: '', value: 0 });
+      setCurrentSymptom({ label: '', value: 0, parent:'' });
       setModalVisible(false);
       console.log(selectedSymptoms);
     };
 
-    const handleSubmit = () => {
-      // Do something with selectedSymptoms here
-      // console.log(selectedSymptoms);
 
-      // Clear selectedSymptoms
-      setSelectedSymptoms([]);
-    };
+    const handleSubmit = () => {
+      handleSave(); // make sure the symptoms are saved before submitting the form
+      // Wait for the symptoms to be saved before creating the record
+      setTimeout(() => {
+      
+        // Create a record object
+      let record = {
+        id: Math.random().toString(), // generate a unique id, replace this with a better id generation logic if available
+        date: new Date().toISOString(),
+        symptoms: selectedSymptoms
+      };
+
+      // Read the existing records from the file
+      FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'records.json')
+        .then(result => {
+          let records = JSON.parse(result); // parse the existing records
+          records.push(record); // push the new record into the existing records array
+          // Save the updated records array back into the file
+          FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'records.json', JSON.stringify(records))
+            .then(() => {
+              console.log('Record saved!');
+              // Clear selectedSymptoms
+              setSelectedSymptoms([]);
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+        })
+        .catch(error => {
+          // If error occurs while reading the file, write directly the new record into the file
+          console.error(error);
+          FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'records.json', JSON.stringify([record]))
+            .then(() => {
+              console.log('Record saved!');
+              // Clear selectedSymptoms
+              setSelectedSymptoms([]);
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+        });
+      }, 1000); // wait for 1 second to allow the symptoms to be saved
+
+        };
 
     const _renderHeader = section => {
       return (
@@ -133,7 +171,7 @@ function AddRecordView(): JSX.Element {
           // <Pressable style={styles.item} onPress={() => console.log(label)}>
           //   <Text>{label}</Text>
           // </Pressable>
-          <TouchableOpacity key={index} style={styles.item} onPress={() => handleLabelPress(label)}>
+          <TouchableOpacity key={index} style={styles.item} onPress={() => handleLabelPress(label, section.title)}>
           <Text>{label}</Text>
         </TouchableOpacity>
         
