@@ -16,7 +16,7 @@ export const Actions = {
 };
 
 const rootReducer = combineReducers({
-  users: users.default,
+  // users: users.default,
   symptoms: symptoms.symptomsReducer
 });
 

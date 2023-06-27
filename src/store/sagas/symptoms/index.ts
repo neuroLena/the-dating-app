@@ -6,7 +6,9 @@ import api from "~services/api";
 
 function* fetchSymptoms() {
   try {
-    const response = yield call(api.get, "/symptoms");
+    // const response = yield call(api.get, "/symptoms");
+    const response = yield call(api.get, "/posts");
+    
     yield put(fetchSymptomsRequest.success(response.data));
   } catch (error) {
     yield put(fetchSymptomsRequest.failure(error));

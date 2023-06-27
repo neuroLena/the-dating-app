@@ -6,12 +6,12 @@ import symptomsSaga from "~store/sagas/symptoms";
 import { Actions } from "~store/reducers";
 
 export default function* rootSaga() {
-  yield users;
+  // yield users;
   yield all([
     // call(users), 
     call(symptomsSaga)
   ]); 
-  yield put(Actions.users.list.request());
+  // yield put(Actions.users.list.request());
   yield put(Actions.symptoms.request()); 
 }
 

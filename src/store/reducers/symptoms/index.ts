@@ -7,13 +7,16 @@ import { RootAction } from "~store/reducers"; // Update the path according to yo
 
 // Define the properties of the Symptom type
 export interface SelectedSymptom {
-    value: number;
-  }
- export interface Symptom {
-    id: number;
+     id: number;
     name: string;
     parent: string;
+    value: number;
   }
+//  export interface Symptom {
+//     id: number;
+//     name: string;
+//     parent: string;
+//   }
 
 // Action types
 export enum Types {
@@ -30,7 +33,7 @@ export const fetchSymptomsRequest = createAsyncAction(
   Types.FETCH_SYMPTOMS_REQUEST,
   Types.FETCH_SYMPTOMS_SUCCESS,
   Types.FETCH_SYMPTOMS_FAILURE
-)<void, Symptom[], Error>();
+)<void, SelectedSymptom[], Error>();
 export const submitSymptomsRequest = createAsyncAction(
   Types.SUBMIT_SYMPTOMS_REQUEST,
   Types.SUBMIT_SYMPTOMS_SUCCESS,
@@ -40,7 +43,7 @@ export const submitSymptomsRequest = createAsyncAction(
 
 // Initial state
 export interface SymptomsState {
-  data: Symptom[];
+  data: SelectedSymptom[];
   loading: boolean;
   error: Error | null;
 }

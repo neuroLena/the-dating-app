@@ -109,7 +109,7 @@ function AddRecordView(): JSX.Element {
 
     const handleSubmit = () => {
       // Do something with selectedSymptoms here
-      console.log(selectedSymptoms);
+      // console.log(selectedSymptoms);
 
       // Clear selectedSymptoms
       setSelectedSymptoms([]);
@@ -198,7 +198,7 @@ function AddRecordView(): JSX.Element {
               onPress={() => {
                 handleSave();
                 setModalVisible(!modalVisible);
-                console.log(`Saved symptom value: ${sliderValue}`);
+                // console.log(`Saved symptom value: ${sliderValue}`);
               }}
               title="Save"
               color="#841584"
