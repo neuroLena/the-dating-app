@@ -19,7 +19,7 @@ export const TextInput = styled.TextInput.attrs((props) => ({
   color: ${(props) => props.theme.colors.text};
   font-family: ${(props) => props.theme.typography.fontFamily.medium};
   font-size: ${(props) => props.theme.typography.sizes.small.size}px;
-  padding-left: 10px;
+  padding-left: 20px;
 `;
 
 export const CancelTouchArea = styled.TouchableOpacity`

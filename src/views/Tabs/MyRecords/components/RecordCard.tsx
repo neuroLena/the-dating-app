@@ -16,7 +16,7 @@ const RecordCard = ({ record }) => {
         <Text key={index} style={styles.text}>{symptom.label}: {symptom.value}</Text>
       ))}
       <TouchableOpacity style={{alignSelf: 'flex-end'}}>
-          <Icon name="edit" size={30} color="#000" />
+          <Icon name="edit" size={15} color= '#6e7f8d' />
         </TouchableOpacity>
       </View>
   );
@@ -24,15 +24,15 @@ const RecordCard = ({ record }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'white',
-    padding: 20,
-    margin: 10,
+    backgroundColor: "#eef3fa",//'white',
+    padding: 10,
+    margin: 5,
     borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowColor: '#a4b1c6',
+    shadowOffset: { width: -2, height: 5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 1,
     width: 300, // Add your desired width here
   },
   text: {

@@ -9,6 +9,8 @@ import { fetchSymptomsRequest } from '~store/reducers/symptoms'; // Update the i
 import * as FileSystem from 'expo-file-system';
 import RecordCard from './components/RecordCard';
 import { width } from "~constants";
+import NeuSpace from '../../../themes/NeuSpace';
+import NeuText from '../../../themes/NeuText';
 
 
 
@@ -52,13 +54,18 @@ const MyRecordsHomeView = () => {
       <Logo width={100} height={100} />
       
       <Title style={{ color: "white" }}> Hello, love! </Title>
-      <Text style={{ color: "black", fontWeight:'bold' }}> Your records: </Text>
-
+      <NeuSpace height={20}/>
+      <NeuText style={{fontWeight:'bold', fontSize:20}}> Your records: </NeuText>
+      <NeuSpace height={10}/>
 
       <View style={{ flex:3, width: "90%", overflow: "scroll" }}>
       <ScrollView indicatorStyle="black" showsVerticalScrollIndicator={true}>
         {records.map((record, index) => (
-            <View key={index}>
+            <View key={index}
+                  style={{
+                    backgroundColor: 'rgba(195, 209, 227, 0.4)'
+                  }}>
+              
           <RecordCard key={index} record={record} />
           
         </View>

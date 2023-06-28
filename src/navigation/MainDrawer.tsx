@@ -1,6 +1,6 @@
 // navigation/MainDrawer.tsx
 
-import React from 'react';
+import React, { useContext }  from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import ProfileNavigator from './LeftDrawer/ProfileNavigator';
 import SettingsNavigator from './LeftDrawer/SettingsNavigator';
@@ -15,8 +15,18 @@ import TopTabsNavigator from './TopTabsNavigator';
 import Home from "../views/Home/index"
 import { RootStackParamList } from "~src/@types/react-navigation.d";
 import { SceneName } from "~src/@types/SceneName";
+import { ThemeContext } from '../';
+import { Button } from 'react-native';
 
 const Drawer = createDrawerNavigator<RootStackParamList>();
+
+function ThemeSwitcher() {
+  const { toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <Button title="Toggle theme" onPress={toggleTheme} />
+  );
+}
 
 function MainDrawer() {
   return (
@@ -32,7 +42,8 @@ function MainDrawer() {
       <Drawer.Screen name="Suggest Improvement" component={SuggestImprovementNavigator} />
       <Drawer.Screen name="Log Out" component={LogOutsNavigator} />
       <Drawer.Screen name="Game" component={GameNavigator} />
-      
+      <Drawer.Screen name="Theme Switcher" component={ThemeSwitcher} />
+ 
     </Drawer.Navigator>
   );
 }

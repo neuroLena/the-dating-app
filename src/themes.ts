@@ -44,10 +44,6 @@ export const DefaultConfigs = {
         size: 14,
         lineHeight: 20,
       },
-      text10:{
-        size: 11,
-        lineHeight: 10,
-      }
     },
   },
 };
@@ -56,11 +52,12 @@ export const DarkTheme: DefaultThemeProps = {
   ...DefaultConfigs,
   dark: true,
   colors: {
-    primary: "#EE61A1",//buttons
-    text: "#000000", //labels
-    background: "#ffffff",
-    secondaryBackground: "#F8F8F8", //iputbox
-    border: "#f2f2f2",
+    primary: "#D45B90",
+    text: "#ffffff",
+    // background: "#07112D",
+    background: "#6e7f8d",
+    secondaryBackground: "#b5bfc6",
+    border: "#111D40",
   },
 };
 
@@ -68,10 +65,10 @@ export const LightTheme: DefaultThemeProps = {
   ...DefaultConfigs,
   dark: false,
   colors: {
-    primary: "#EE61A1",
+    primary: "#eff2f9",
     text: "#070F26",
     background: "#ffffff",
-    secondaryBackground: "#F8F8F8",
+    secondaryBackground: "#e4ebf1",
     border: "#f2f2f2",
   },
 };

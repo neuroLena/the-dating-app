@@ -25,6 +25,15 @@ import type { PropsWithChildren } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import RNFS from 'react-native-fs';import * as FileSystem from 'expo-file-system';
+import NeuView from '../../../../themes/NeuView';
+import NeuText from '../../../../themes/NeuText';
+import NeuButton from '../../../../themes/NeuButton';
+import NeuInput from '../../../../themes/NeuInput';
+import NeuCard from '../../../../themes/NeuCard';
+import NeuSpace from '../../../../themes/NeuSpace';
+
+
+import NeuSlider from '../../../../themes/NeuSlider';
 
 // The data should be an array, please ensure it is correctly formatted
 
@@ -155,36 +164,44 @@ function AddRecordView(): JSX.Element {
 
     const _renderHeader = section => {
       return (
-        <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray', padding: 10 }}>
+        <View style={{ borderBottomWidth: 1, 
+                    borderBottomColor: 'rgba(195, 209, 227, 0.3)', 
+                    padding: 10,
+                    backgroundColor: '#eef3fa' }}>
       
-          <Text>{section.title}</Text>
+          <NeuText>{section.title}</NeuText>
         </View>
       );
     };
 
     const _renderContent = section => {
       return (
-
+        
         <FlatList
         data={section.content}
         renderItem={({ item: label, index }) => (
           // <Pressable style={styles.item} onPress={() => console.log(label)}>
           //   <Text>{label}</Text>
           // </Pressable>
+       
           <TouchableOpacity key={index} style={styles.item} onPress={() => handleLabelPress(label, section.title)}>
           <Text>{label}</Text>
         </TouchableOpacity>
-        
+     
         )}
         keyExtractor={item => item}
         numColumns={3}
       />
+      
 
       );
     };
 
     return (
+      
+
       <SafeAreaView style={styles.container}>
+        <NeuView>
         <View
            style={styles.container}>
             <Accordion
@@ -198,9 +215,11 @@ function AddRecordView(): JSX.Element {
               sectionContainerStyle={styles.accordContainer}
             />
         </View>
-        <SubmitButton onPress={handleSubmit}>
-          Submit 
-        </SubmitButton>
+       
+
+        <NeuButton  onPress={handleSubmit} >
+        <NeuText>Submit!</NeuText>
+        </NeuButton>
 
         <Modal
           animationType="slide"
@@ -221,7 +240,7 @@ function AddRecordView(): JSX.Element {
             
             <Text style={styles.modalText}>Set the value for {currentSymptom.label}</Text>
 
-            <Slider
+            {/* <Slider
               style={{width: 200, height: 40}}
               minimumValue={1}
               maximumValue={100}
@@ -230,9 +249,9 @@ function AddRecordView(): JSX.Element {
                 onSlidingComplete={(value) => {
                   setCurrentSymptom({ ...currentSymptom, value });
                 }}
-            />
-
-            <Button
+            /> */}
+            <NeuSlider/>
+            {/* <Button
               onPress={() => {
                 handleSave();
                 setModalVisible(!modalVisible);
@@ -240,12 +259,18 @@ function AddRecordView(): JSX.Element {
               }}
               title="Save"
               color="#841584"
-            />
+            /> */}
+            <NeuButton  onPress={handleSubmit} >
+              <NeuText>Save!</NeuText>
+          </NeuButton>
           </View>
         </View>
       </Modal>
 
+      </NeuView>
       </SafeAreaView>
+
+     
     );
   }
   
@@ -261,7 +286,8 @@ function AddRecordView(): JSX.Element {
       maxWidth: '30%',
     },
     accordContainer: {
-      paddingBottom: 4
+      paddingBottom: 1,
+      backgroundColor: '#fff',
     },
     accordHeader: {
       padding: 12,
@@ -275,7 +301,8 @@ function AddRecordView(): JSX.Element {
       fontSize: 20,
     },
     accordBody: {
-      padding: 12
+      padding: 12,
+      backgroundColor: '#fef3fa',
     },
     textSmall: {
       fontSize: 16
@@ -291,22 +318,24 @@ function AddRecordView(): JSX.Element {
     },
     modalView: {
       margin: 20,
-      backgroundColor: "white",
+      // backgroundColor: "white",
+      backgroundColor: '#eef3fa',
       borderRadius: 20,
       padding: 35,
       alignItems: "center",
-      shadowColor: "#000",
+      shadowColor: "#a4b1c6",
       shadowOffset: {
         width: 0,
         height: 2
       },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
+      shadowOpacity: 1,
+      shadowRadius: 40,
       elevation: 5
     },
     modalText: {
       marginBottom: 15,
-      textAlign: "center"
+      textAlign: "center",
+      color: "#eff2f9"
     }
   });
 

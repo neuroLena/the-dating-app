@@ -22,6 +22,7 @@ export enum SceneName {
   TreatmentHome = "TreatmentHome",
   UserProfile = "UserProfile",
   GameHomeView="GameHomeView",
-  SuggestImprovement = "SuggestImprovement"
+  SuggestImprovement = "SuggestImprovement",
+  TodoList = "TodoList"
   // TopTabHome = "TopTabHome",
 }
