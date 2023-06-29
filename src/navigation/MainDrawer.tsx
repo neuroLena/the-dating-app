@@ -10,6 +10,7 @@ import AboutAppNavigator from './LeftDrawer/AboutAppNavigator';
 import ExportDataavigator from './LeftDrawer/ExportDataNavigator';
 import ShareDataNavigator from './LeftDrawer/ShareDataNavigator';
 
+import SetUpNavigator from './LeftDrawer/SetUpNavigator';
 import GameNavigator from './LeftDrawer/GameNavigator';
 import TopTabsNavigator from './TopTabsNavigator';
 import Home from "../views/Home/index"
@@ -43,6 +44,7 @@ function MainDrawer() {
       <Drawer.Screen name="Log Out" component={LogOutsNavigator} />
       <Drawer.Screen name="Game" component={GameNavigator} />
       <Drawer.Screen name="Theme Switcher" component={ThemeSwitcher} />
+      <Drawer.Screen name="Set Up" component={SetUpNavigator} />
  
     </Drawer.Navigator>
   );
