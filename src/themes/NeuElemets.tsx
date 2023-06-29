@@ -1,3 +1,5 @@
+//themes/NeuElements
+
 import React, { useContext } from 'react';
 import { View, 
     Text, 
@@ -62,46 +64,46 @@ const NeuButton = ({ children, onPress }) => {
 
 const getStyles = (theme) => StyleSheet.create({
   view: {
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.colors.background,
     borderRadius: 10,
     padding: 10,
   },
   text: {
-    color: theme.textColor,
+    color: theme.colors.text,
   },
   space: {
-    backgroundColor: theme.secondaryColor,
+    backgroundColor: theme.colors.background,
     borderRadius: 10,
   },
   slider: {
     width: 200,
     height: 40,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.colors.background,
     borderRadius: 10,
-    shadowColor: theme.shadowColor,
-    shadowOffset: {
-      width: -6,
-      height: -6,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 6,
-    minimumTrackTintColor: theme.accentColor,
-    maximumTrackTintColor: theme.shadowColor,
-    thumbTintColor: theme.highlightColor,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: -6,
+    //   height: -6,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 6,
+    // minimumTrackTintColor: theme.accentColor,
+    // maximumTrackTintColor: theme.shadowColor,
+    // thumbTintColor: theme.highlightColor,
   },
   input: {
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.colors.secondaryBackground,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: theme.secondaryColor,
+    borderColor: theme.colors.border,
     paddingHorizontal: 15,
     paddingVertical: 20,
   },
   card: {
     innerShadow: {
-      backgroundColor: theme.secondaryColor,
+      backgroundColor: theme.colors.background,
       borderRadius: 10,
-      shadowColor: theme.shadowColor,
+      shadowColor: theme.colors.lightShadow,
       shadowOffset: {
         width: -6,
         height: -6,
@@ -110,10 +112,10 @@ const getStyles = (theme) => StyleSheet.create({
       shadowRadius: 6,
       elevation: 10,
     },
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.colors.background,
     borderRadius: 10,
     padding: 10,
-    shadowColor: theme.shadowColor,
+    shadowColor: theme.colors.darkShadow,
     shadowOffset: {
       width: -4,
       height: 6,
@@ -123,9 +125,9 @@ const getStyles = (theme) => StyleSheet.create({
     elevation: 10,
   },
   innerShadow: {
-    backgroundColor: theme.secondaryColor,
+    backgroundColor: theme.colors.background,
     borderRadius: 25,
-    shadowColor: theme.shadowColor,
+    shadowColor: theme.colors.darkShadow,
     shadowOffset: {
       width: -6,
       height: -6,
@@ -135,15 +137,15 @@ const getStyles = (theme) => StyleSheet.create({
     elevation: 10,
   },
   button: {
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.colors.secondaryBackground,
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: theme.primaryColor,
+    borderColor: theme.colors.border,
     borderOpacity:0.01,
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: theme.shadowColor,
+    shadowColor: theme.colors.darkShadow,
     shadowOffset: {
       width: -5,
       height: 5,
@@ -154,7 +156,7 @@ const getStyles = (theme) => StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    color: theme.textColor,
+    color: theme.colors.text,
   },
 });
 

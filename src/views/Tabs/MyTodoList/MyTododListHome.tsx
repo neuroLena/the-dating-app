@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
-import NeuView from '../../../themes/NeuView';
-import NeuText from '../../../themes/NeuText';
-import NeuButton from '../../../themes/NeuButton';
-import NeuInput from '../../../themes/NeuInput';
-import NeuCard from '../../../themes/NeuCard';
-import NeuSpace from '../../../themes/NeuSpace';
+// import NeuView from '../../../themes/NeuView';
+// import NeuText from '../../../themes/NeuText';
+// import NeuButton from '../../../themes/NeuButton';
+// import NeuInput from '../../../themes/NeuInput';
+// import NeuCard from '../../../themes/NeuCard';
+// import NeuSpace from '../../../themes/NeuSpace';
+import {NeuView,
+        NeuText,
+        NeuButton,
+        NeuCard,
+        NeuSpace,
+        NeuInput
+        }from '../../../themes/NeuElemets';
 
 
 

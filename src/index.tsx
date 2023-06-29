@@ -78,16 +78,17 @@ export default function App() {
       <ThemeProvider theme={theme}>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         
-        <SafeComponent request={{ loading: !fontsLoaded, data: true }}>
-          <Provider store={store}>
-            <StatusBar style="dark" />
-            <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-              {/* <NavigationContainer theme={theme as any}> */}
-                <Router />
-              {/* </NavigationContainer> */}
-            </AuthContext.Provider>
-          </Provider>
-        </SafeComponent>
+            <SafeComponent request={{ loading: !fontsLoaded, data: true }}>
+              <Provider store={store}>
+                <StatusBar style="dark" />
+                <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+                  {/* <NavigationContainer theme={theme as any}> */}
+                    <Router />
+                  {/* </NavigationContainer> */}
+                </AuthContext.Provider>
+              </Provider>
+            </SafeComponent>
+
         </ThemeContext.Provider>
       </ThemeProvider>
     </SafeAreaProvider>

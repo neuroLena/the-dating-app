@@ -52,12 +52,16 @@ export const DarkTheme: DefaultThemeProps = {
   ...DefaultConfigs,
   dark: true,
   colors: {
-    primary: "#D45B90",
-    text: "#ffffff",
-    // background: "#07112D",
+    primary: "#FA87A7",
+    text: "#eff2f9",
     background: "#6e7f8d",
     secondaryBackground: "#b5bfc6",
     border: "#111D40",
+    darkShadow: "#FA87A7",
+    lightShadow: "#FA87A7",
+    lightBorder: "#FA87A7",
+    darkBorder: "#FA87A7",
+    pressed:"#FA87A7"
   },
 };
 
@@ -65,11 +69,16 @@ export const LightTheme: DefaultThemeProps = {
   ...DefaultConfigs,
   dark: false,
   colors: {
-    primary: "#eff2f9",
-    text: "#070F26",
-    background: "#ffffff",
+    primary: "#FA87A7",
+    text: "#6e7f8d",
+    background: "#eff2f9",
     secondaryBackground: "#e4ebf1",
     border: "#f2f2f2",
+    darkShadow: "#6e7f8d",
+    lightShadow: "#FA87A7",
+    lightBorder: "#FA87A7",
+    darkBorder: "#FA87A7",
+    pressed:"#FA87A7"
   },
 };
 
